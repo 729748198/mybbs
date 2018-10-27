@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mybbs.hwj.dao.role.Base_infoMapper" >
+  <resultMap id="BaseResultMap" type="com.mybbs.hwj.entity.login.Base_info" >
+
+    <result column="base_name" property="name" jdbcType="VARCHAR" />
+    <result column="base_sex" property="sex" jdbcType="VARCHAR" />
+    <result column="base_age" property="age" jdbcType="INTEGER" />
+    <result column="base_fatieshu" property="fatieshu" jdbcType="INTEGER" />
+    <result column="base_huitieshu" property="huitieshu" jdbcType="INTEGER" />
+    <result column="base_shenfenzheng" property="shenfenzheng" jdbcType="VARCHAR" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+   base_name,base_sex, base_age,base_fatieshu,base_huitieshu,base_shenfenzheng,username 
+  </sql>
+  
+  <insert id="insert" parameterType="com.mybbs.hwj.entity.login.Base_info" >
+    insert into base_userinfo (base_id,base_sex,base_age,base_fatieshu,base_huitieshu,base_shenfenzheng,username )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{fatieshu,jdbcType=INTEGER}, #{huitieshu,jdbcType=INTEGER},#{shenfenzheng,jdbcType=VARCHAR},#{username,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.mybbs.hwj.entity.login.Base_info" >
+    insert into base_userinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+
+      <if test="name != null" >
+       base_name,
+      </if>
+      <if test="sex != null" >
+        base_sex,
+      </if>
+      <if test="age != null" >
+        base_age,
+      </if>
+      <if test="fatieshu != null" >
+        base_fatieshu,
+      </if>
+       <if test="huitieshu != null" >
+        base_huitieshu,
+      </if>
+      <if test="shenfenzheng != null" >
+        base_shenfenzheng,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        #{age,jdbcType=INTEGER},
+      </if>
+      <if test="fatieshu != null" >
+        #{fatieshu,jdbcType=INTEGER},
+      </if>
+      <if test="huitieshu != null" >
+        #{huitieshu,jdbcType=INTEGER},
+      </if>
+      <if test="shenfenzheng != null" >
+        #{shenfenzheng,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+     
+    </trim>
+  </insert>
+  
+</mapper>
