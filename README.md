@@ -1,6 +1,8 @@
 # mybbs
 这是一个简单的论坛网站
 
+访问     120.78.66.11:8080/mybbs   可以发帖
+
 WebContent：前端 login.jsp: 登录页面
 
   WEB-INF/view
